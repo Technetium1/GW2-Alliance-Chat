@@ -29,7 +29,7 @@ module.exports = class User {
         this.clientVersion = "Unknown";
     }
 
-    getName() {
+    get name() {
         let name = this.accountName;
         if (this.isAuthenticated) {
             if (this.isOnline)
@@ -51,7 +51,7 @@ module.exports = class User {
 
     async getListName() {
         if (this.isAuthenticated) {
-            let name = this.getName();
+            let name = this.name;
             let location = await this.getLocation()
             return `${name} ${location}`;
         }
